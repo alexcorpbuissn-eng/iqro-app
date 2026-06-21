@@ -24,11 +24,7 @@ function StatusPill({ children, color }: { children: React.ReactNode; color: 'gr
 export default function HomePage() {
   const { t, lang } = useLang();
 
-  const quickActions = [
-    { href: '/parent',  icon: <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>, labelUz: 'OTA-ONA',  labelRu: 'РОДИТЕЛЬ', id: 'qa-parent'  },
-    { href: '/admin',   icon: <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>, labelUz: 'ADMIN',    labelRu: 'АДМИН',    id: 'qa-admin'   },
-    { href: '/courses', icon: <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>, labelUz: 'KURSLAR',  labelRu: 'КУРСЫ',    id: 'qa-courses' },
-  ];
+
 
   return (
     <div className="min-h-screen bg-[#F4F4F6] pb-24">
@@ -71,26 +67,53 @@ export default function HomePage() {
       <div className="bg-[#F4F4F6] rounded-t-3xl -mt-4 relative z-10">
         <div className="max-w-2xl mx-auto px-4 pt-6 space-y-6 animate-fade-in">
 
-          {/* ── Quick actions ── */}
-          <div>
-            <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest px-1 mb-2">
-              {lang === 'ru' ? 'БЫСТРЫЕ ДЕЙСТВИЯ' : 'TEZKOR HARAKATLAR'}
+          {/* ── Role selector card ── */}
+          <div className="bg-white rounded-3xl p-5 shadow-sm border border-gray-100">
+            <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-3">
+              {lang === 'ru' ? 'КТО ВЫ?' : 'SIZ KIMSIZ?'}
             </p>
-            <div className="grid grid-cols-3 gap-3">
-              {quickActions.map((qa) => (
-                <Link
-                  key={qa.href}
-                  href={qa.href}
-                  id={qa.id}
-                  className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col items-center gap-2 hover:border-red-200 hover:shadow-md active:scale-[0.97] transition-all duration-200"
-                >
-                  <span className="flex items-center justify-center h-8">{qa.icon}</span>
-                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                    {lang === 'ru' ? qa.labelRu : qa.labelUz}
-                  </span>
-                </Link>
-              ))}
+            
+            <div className="grid grid-cols-2 gap-3">
+              {/* Parent role */}
+              <Link href="/parent" className="flex flex-col items-center gap-2 bg-[#F7F7F9] rounded-2xl p-4 border-2 border-transparent hover:border-[#C0181B] active:scale-[0.97] transition-all">
+                <div className="w-12 h-12 rounded-full bg-[#C0181B]/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#C0181B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <p className="text-xs font-bold text-[#1C1C2E] text-center leading-tight">
+                  {lang === 'ru' ? 'Я родитель' : 'Men ota-onayman'}
+                </p>
+                <p className="text-[10px] text-gray-400 text-center leading-tight">
+                  {lang === 'ru' ? 'Слежу за ребёнком' : 'Farzandimni kuzataman'}
+                </p>
+              </Link>
+
+              {/* Student role */}
+              <Link href="/parent" className="flex flex-col items-center gap-2 bg-[#F7F7F9] rounded-2xl p-4 border-2 border-transparent hover:border-[#C0181B] active:scale-[0.97] transition-all">
+                <div className="w-12 h-12 rounded-full bg-[#C0181B]/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#C0181B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                </div>
+                <p className="text-xs font-bold text-[#1C1C2E] text-center leading-tight">
+                  {lang === 'ru' ? 'Я ученик' : "Men o'quvchiman"}
+                </p>
+                <p className="text-[10px] text-gray-400 text-center leading-tight">
+                  {lang === 'ru' ? 'Мой личный кабинет' : 'Mening kabinetim'}
+                </p>
+              </Link>
             </div>
+
+            {/* Admin link — small, below the two main roles */}
+            <Link href="/admin" className="mt-3 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors">
+              <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              <span className="text-xs font-semibold text-gray-400">
+                {lang === 'ru' ? 'Панель администратора' : 'Admin Panel'}
+              </span>
+            </Link>
           </div>
 
           {/* ── Course catalog preview ── */}
