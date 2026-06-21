@@ -3,6 +3,8 @@ import { Inter, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import { LangProvider } from '@/lib/i18n-context';
 import { OnboardingGate } from '@/components/shared/OnboardingGate';
+import { SidebarProvider } from '@/lib/sidebar-context';
+import { Sidebar } from '@/components/shared/Sidebar';
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -53,9 +55,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={inter.className}>
         <LangProvider>
-          <OnboardingGate>
-            {children}
-          </OnboardingGate>
+          <SidebarProvider>
+            <Sidebar />
+            <OnboardingGate>
+              {children}
+            </OnboardingGate>
+          </SidebarProvider>
         </LangProvider>
       </body>
     </html>

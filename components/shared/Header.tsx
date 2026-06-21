@@ -11,8 +11,11 @@ interface HeaderProps {
   right?: React.ReactNode;
 }
 
+import { useSidebar } from '@/lib/sidebar-context';
+
 export function DarkHeader({ left = 'menu', right }: HeaderProps) {
   const router = useRouter();
+  const { open } = useSidebar();
 
   return (
     <div className="bg-[#111111] px-4 pt-4 pb-0">
@@ -32,9 +35,9 @@ export function DarkHeader({ left = 'menu', right }: HeaderProps) {
           )}
           {left === 'menu' && (
             <button
-              className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/10 text-white pointer-events-none"
+              onClick={open}
+              className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors"
               aria-label="Menu"
-              tabIndex={-1}
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
