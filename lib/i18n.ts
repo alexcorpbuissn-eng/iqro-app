@@ -76,6 +76,42 @@ export const translations = {
     // Landing
     landingHeadline: "Bolangizning o'quv hayoti — doim qo'lingizda",
     landingSubtitle: "Davomat, uy vazifasi, to'lovlar — hamma narsa bir joyda",
+
+    // Nav
+    navHome: "Bosh sahifa",
+    navCourses: "Kurslar",
+    navSchedule: "Jadval",
+    navProfile: "Profil",
+
+    // Home CTA
+    viewCourses: "Kurslarni ko'rish",
+    heroTitle: "IQRO",
+    heroTagline: "Bilim — kelajaging kaliti",
+    heroSub: "Zamonaviy ta'lim, tajribali o'qituvchilar, isbotlangan natijalar.",
+
+    // Courses
+    courseCatalog: "Kurslar",
+    courseMonth: "oylik",
+    ageRange: "Yosh",
+    enroll: "Ro'yxatdan o'tish",
+    enrolled: "Ro'yxatdan o'tilgan",
+    courseDetail: "Kurs haqida",
+    lessons: "Darslar",
+    lessonCompleted: "Yakunlangan",
+    lessonPending: "Kutilmoqda",
+    courseScheduleLabel: "Dars jadvali",
+    courseTeacher: "O'qituvchi",
+    coursePrice: "To'lov",
+    backToCourses: "Kurslarga qaytish",
+
+    // Schedule screen
+    scheduleTitle: "Dars jadvali",
+    scheduleThisWeek: "Bu hafta",
+    dayMon: "Du",
+    dayTue: "Se",
+    dayWed: "Ch",
+    dayThu: "Pa",
+    dayFri: "Ju",
   },
   ru: {
     appName: 'IQRO',
@@ -152,6 +188,42 @@ export const translations = {
     // Landing
     landingHeadline: 'Учёба вашего ребёнка — всегда под рукой',
     landingSubtitle: 'Посещаемость, домашние задания, оплаты — всё в одном месте',
+
+    // Nav
+    navHome: 'Главная',
+    navCourses: 'Курсы',
+    navSchedule: 'Расписание',
+    navProfile: 'Профиль',
+
+    // Home CTA
+    viewCourses: 'Смотреть курсы',
+    heroTitle: 'IQRO',
+    heroTagline: 'Знания — ключ к будущему',
+    heroSub: 'Современное образование, опытные педагоги, проверенные результаты.',
+
+    // Courses
+    courseCatalog: 'Курсы',
+    courseMonth: 'в месяц',
+    ageRange: 'Возраст',
+    enroll: 'Записаться',
+    enrolled: 'Записан',
+    courseDetail: 'О курсе',
+    lessons: 'Уроки',
+    lessonCompleted: 'Пройдено',
+    lessonPending: 'Ожидается',
+    courseScheduleLabel: 'Расписание занятий',
+    courseTeacher: 'Учитель',
+    coursePrice: 'Оплата',
+    backToCourses: 'Назад к курсам',
+
+    // Schedule screen
+    scheduleTitle: 'Расписание',
+    scheduleThisWeek: 'Эта неделя',
+    dayMon: 'Пн',
+    dayTue: 'Вт',
+    dayWed: 'Ср',
+    dayThu: 'Чт',
+    dayFri: 'Пт',
   },
 } as const;
 
