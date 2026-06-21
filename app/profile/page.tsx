@@ -49,8 +49,8 @@ export default function ProfilePage() {
     .toUpperCase();
 
   const tabLabels: Record<ProfileTab, string> = {
-    info:     lang === 'ru' ? "Ma'lumotlar" : "Ma'lumotlar",
-    settings: lang === 'ru' ? 'Sozlamalar'  : 'Sozlamalar',
+    info:     lang === 'ru' ? 'Мои данные'  : "Ma'lumotlar",
+    settings: lang === 'ru' ? 'Настройки'   : 'Sozlamalar',
   };
 
   return (
@@ -126,7 +126,7 @@ export default function ProfilePage() {
           {activeTab === 'settings' && (
             <div className="animate-fade-in">
               <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest px-1 mb-2">
-                {lang === 'ru' ? 'SOZLAMALAR' : 'SOZLAMALAR'}
+                {lang === 'ru' ? 'НАСТРОЙКИ' : 'SOZLAMALAR'}
               </p>
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <SettingRow
