@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { DarkHeader } from '@/components/shared/Header';
 import { BottomNav } from '@/components/shared/BottomNav';
 import { LangToggle } from '@/components/shared/LangToggle';
@@ -135,8 +136,17 @@ export default function ProfilePage() {
                   right={<LangToggle variant="light" />}
                 />
                 <SettingRow
+                  icon="📖"
+                  label={lang === 'ru' ? "Руководство" : "Qo'llanma"}
+                  right={
+                    <Link href="/guide" className="text-[#C0181B] text-sm font-semibold">
+                      {lang === 'ru' ? 'Открыть →' : 'Ochish →'}
+                    </Link>
+                  }
+                />
+                <SettingRow
                   icon="ℹ️"
-                  label={lang === 'ru' ? 'Ilova versiyasi' : 'Ilova versiyasi'}
+                  label={lang === 'ru' ? 'Версия приложения' : 'Ilova versiyasi'}
                   right={<span className="text-sm text-gray-400 font-medium">1.0.0</span>}
                   last
                 />

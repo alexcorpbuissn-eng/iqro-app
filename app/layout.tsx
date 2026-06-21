@@ -43,6 +43,8 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
+import { OnboardingGate } from '@/components/shared/OnboardingGate';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="uz" className={`${inter.variable} ${cormorant.variable}`}>
@@ -52,7 +54,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={inter.className}>
         <LangProvider>
-          {children}
+          <OnboardingGate>
+            {children}
+          </OnboardingGate>
         </LangProvider>
       </body>
     </html>
