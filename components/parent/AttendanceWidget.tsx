@@ -1,88 +1,50 @@
 'use client';
 
 import { useLang } from '@/lib/i18n-context';
-import { weekAttendance, todayAttendanceStatus, AttendanceStatus } from '@/lib/mock-data';
+import { weekAttendance, todayAttendanceStatus } from '@/lib/mock-data';
 
-function statusConfig(status: AttendanceStatus, lang: string) {
-  const configs = {
-    present: {
-      icon: '✅',
-      labelUz: 'Keldi',
-      labelRu: 'Присутствует',
-      bg: 'bg-green-50',
-      border: 'border-green-200',
-      text: 'text-green-700',
-      dot: 'bg-green-500',
-    },
-    absent: {
-      icon: '❌',
-      labelUz: 'Kelmadi',
-      labelRu: 'Отсутствует',
-      bg: 'bg-red-50',
-      border: 'border-red-200',
-      text: 'text-red-700',
-      dot: 'bg-red-500',
-    },
-    excused: {
-      icon: '⚠️',
-      labelUz: 'Sababli',
-      labelRu: 'Уважительная',
-      bg: 'bg-amber-50',
-      border: 'border-amber-200',
-      text: 'text-amber-700',
-      dot: 'bg-amber-500',
-    },
-    future: {
-      icon: '—',
-      labelUz: 'Kutilmoqda',
-      labelRu: 'Ожидается',
-      bg: 'bg-gray-50',
-      border: 'border-gray-200',
-      text: 'text-gray-400',
-      dot: 'bg-gray-300',
-    },
-  };
-  const c = configs[status];
-  return { ...c, label: lang === 'ru' ? c.labelRu : c.labelUz };
-}
+const statusConfig = {
+  present: { dot: 'bg-green-400', pill: 'bg-green-100 text-green-700', label: { uz: 'KELDI', ru: 'ПРИШЁЛ' } },
+  absent:  { dot: 'bg-red-400',   pill: 'bg-red-100 text-red-700',     label: { uz: 'KELMADI', ru: 'НЕ ПРИШЁЛ' } },
+  excused: { dot: 'bg-amber-400', pill: 'bg-amber-100 text-amber-700', label: { uz: "SABABLI", ru: 'УВАЖИТ.' } },
+  future:  { dot: 'bg-gray-300',  pill: 'bg-gray-100 text-gray-400',   label: { uz: 'KUTILMOQDA', ru: 'ОЖИДАЕТСЯ' } },
+};
 
 export function AttendanceWidget() {
-  const { t, lang } = useLang();
-  const today = statusConfig(todayAttendanceStatus, lang);
+  const { lang } = useLang();
+  const today = todayAttendanceStatus;
+  const todayCfg = statusConfig[today];
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">
-        {t('attendance')}
-      </h3>
-
-      {/* Today's large status */}
-      <div className={`rounded-xl border-2 ${today.bg} ${today.border} p-4 flex items-center gap-4 mb-5`}>
-        <span className="text-3xl">{today.icon}</span>
-        <div>
-          <p className="text-xs text-gray-500 font-medium">{t('todayStatus')}</p>
-          <p className={`text-xl font-bold ${today.text} mt-0.5`}>{today.label}</p>
-        </div>
-      </div>
-
-      {/* Week history */}
-      <p className="text-xs font-medium text-gray-400 mb-3">{t('weekHistory')}</p>
-      <div className="flex gap-2">
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      {/* Day pills row */}
+      <div className="flex divide-x divide-gray-50 border-b border-gray-50">
         {weekAttendance.map((day) => {
-          const cfg = statusConfig(day.status, lang);
-          const dayLabel = lang === 'ru'
-            ? day.dayRu
-            : day.day.slice(0, 4);
-
+          const cfg = statusConfig[day.status];
           return (
-            <div key={day.date} className="flex-1 flex flex-col items-center gap-1.5">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${cfg.bg} border ${cfg.border}`}>
-                <span className="text-base leading-none">{cfg.icon}</span>
-              </div>
-              <span className="text-[10px] font-medium text-gray-500 text-center leading-tight">{dayLabel}</span>
+            <div key={day.day} className="flex-1 flex flex-col items-center py-3 gap-1.5">
+              <span className="text-[10px] font-bold text-gray-400 uppercase">
+                {lang === 'ru' ? day.dayRu : day.day.slice(0, 2).toUpperCase()}
+              </span>
+              <div className={`w-2 h-2 rounded-full ${cfg.dot}`} />
             </div>
           );
         })}
+      </div>
+
+      {/* Today status */}
+      <div className="px-4 py-3.5 flex items-center justify-between">
+        <div>
+          <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">
+            {lang === 'ru' ? 'СЕГОДНЯ' : 'BUGUN'}
+          </p>
+          <p className="text-sm font-bold text-[#1C1C2E] mt-0.5">
+            {lang === 'ru' ? 'Payshanba' : 'Payshanba'}
+          </p>
+        </div>
+        <span className={`${todayCfg.pill} text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide`}>
+          {todayCfg.label[lang]}
+        </span>
       </div>
     </div>
   );

@@ -1,36 +1,32 @@
 'use client';
 
 import { useLang } from '@/lib/i18n-context';
-import { weeklyChartData } from '@/lib/mock-data';
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
+  BarChart, Bar, XAxis, YAxis, CartesianGrid,
+  Tooltip, ResponsiveContainer, Cell,
 } from 'recharts';
 
-interface AttendanceChartProps {
-  branchId: number;
+interface ChartEntry {
+  day: string;
+  dayRu: string;
+  pct: number | null;
 }
 
-export function AttendanceChart({ branchId }: AttendanceChartProps) {
-  const { t, lang } = useLang();
-  const rawData = weeklyChartData[branchId] ?? weeklyChartData[1];
+interface AttendanceChartProps {
+  data: ChartEntry[];
+}
 
-  const chartData = rawData.map((d) => ({
+export function AttendanceChart({ data }: AttendanceChartProps) {
+  const { lang } = useLang();
+
+  const chartData = data.map((d) => ({
     day: lang === 'ru' ? d.dayRu : d.day,
     pct: d.pct,
   }));
 
-  const CustomTooltip = ({ active, payload, label }: {
-    active?: boolean;
-    payload?: { value: number }[];
-    label?: string;
-  }) => {
+  const CustomTooltip = ({
+    active, payload, label,
+  }: { active?: boolean; payload?: { value: number }[]; label?: string }) => {
     if (active && payload && payload.length && payload[0].value != null) {
       return (
         <div className="bg-[#1C1C2E] text-white text-xs px-3 py-2 rounded-lg shadow-lg">
@@ -44,10 +40,6 @@ export function AttendanceChart({ branchId }: AttendanceChartProps) {
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-      <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">
-        {t('weeklyAttendance')}
-      </h3>
-
       <div className="h-40">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 0, right: 4, left: -20, bottom: 0 }} barSize={28}>
