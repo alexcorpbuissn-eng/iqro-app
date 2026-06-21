@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import { LangProvider } from '@/lib/i18n-context';
+import { OnboardingGate } from '@/components/shared/OnboardingGate';
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -43,8 +44,6 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-import { OnboardingGate } from '@/components/shared/OnboardingGate';
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="uz" className={`${inter.variable} ${cormorant.variable}`}>
@@ -54,11 +53,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={inter.className}>
         <LangProvider>
-          <OnboardingGate>
-            {children}
-          </OnboardingGate>
-        </LangProvider>
-      </body>
-    </html>
-  );
-}
+         
