@@ -35,7 +35,7 @@ export function Sidebar() {
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black/50 z-[100]" 
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100]" 
         onClick={close}
         aria-hidden="true"
       />

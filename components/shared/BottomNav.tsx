@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLang } from '@/lib/i18n-context';
+import { useSidebar } from '@/lib/sidebar-context';
 
 // ── SVG Icons ────────────────────────────────────────────────────────────────
 const HomeIcon = ({ active }: { active: boolean }) => (
@@ -63,6 +64,7 @@ const RIGHT_TABS: NavTab[] = [
 export function BottomNav() {
   const pathname = usePathname();
   const { t } = useLang();
+  const { isOpen } = useSidebar();
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
@@ -88,7 +90,7 @@ export function BottomNav() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-100 pb-safe shadow-[0_-2px_16px_rgba(0,0,0,0.06)]">
+    <nav className={`fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-100 pb-safe shadow-[0_-2px_16px_rgba(0,0,0,0.06)] ${isOpen ? 'hidden' : ''}`}>
       <div className="max-w-2xl mx-auto flex items-end h-16">
 
         {/* Left tabs */}
