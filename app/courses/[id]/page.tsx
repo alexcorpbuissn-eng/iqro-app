@@ -38,7 +38,9 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
           {/* Icon + title */}
           <div className="flex items-center gap-4">
             <div className={`w-14 h-14 ${course.colorClass} rounded-2xl flex items-center justify-center text-3xl flex-shrink-0`}>
-              {course.icon}
+              <span className="text-white font-bold">
+                {(lang === 'ru' ? course.nameRu : course.nameUz).charAt(0)}
+              </span>
             </div>
             <div>
               <h1 className="text-xl font-bold text-white leading-tight">

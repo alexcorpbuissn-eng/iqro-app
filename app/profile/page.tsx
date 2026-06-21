@@ -26,7 +26,7 @@ function InfoRow({ icon, label, value, last }: { icon: React.ReactNode; label: s
 }
 
 // ── Setting Row ─────────────────────────────────────────────────────────────
-function SettingRow({ icon, label, right, last }: { icon: string; label: string; right: React.ReactNode; last?: boolean }) {
+function SettingRow({ icon, label, right, last }: { icon: React.ReactNode; label: string; right: React.ReactNode; last?: boolean }) {
   return (
     <div className={`flex items-center gap-3 px-4 py-3.5 ${last ? '' : 'border-b border-gray-50'}`}>
       <div className="w-9 h-9 bg-gray-50 rounded-xl flex items-center justify-center flex-shrink-0 text-lg">
@@ -108,17 +108,17 @@ export default function ProfilePage() {
                 {lang === 'ru' ? 'ЛИЧНЫЕ ДАННЫЕ' : "SHAXSIY MA'LUMOTLAR"}
               </p>
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <InfoRow icon="📱" label={lang === 'ru' ? 'TELEFON' : 'TELEFON'}         value={demoParent.phone}         />
-                <InfoRow icon="👤" label={lang === 'ru' ? "O'QUVCHI" : "O'QUVCHI"}      value={demoStudent.fullName}     />
-                <InfoRow icon="📚" label={lang === 'ru' ? 'GURUH' : 'GURUH'}             value={demoStudent.group}        />
-                <InfoRow icon="🏢" label={lang === 'ru' ? 'FILIAL' : 'FILIAL'}           value={demoStudent.branch}  last />
+                <InfoRow icon={<svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>} label={lang === 'ru' ? 'TELEFON' : 'TELEFON'}         value={demoParent.phone}         />
+                <InfoRow icon={<svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>} label={lang === 'ru' ? "O'QUVCHI" : "O'QUVCHI"}      value={demoStudent.fullName}     />
+                <InfoRow icon={<svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>} label={lang === 'ru' ? 'GURUH' : 'GURUH'}             value={demoStudent.group}        />
+                <InfoRow icon={<svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>} label={lang === 'ru' ? 'FILIAL' : 'FILIAL'}           value={demoStudent.branch}  last />
               </div>
 
               <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest px-1 mb-2 mt-4">
                 {lang === 'ru' ? 'O\'QITUVCHI' : "O'QITUVCHI"}
               </p>
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <InfoRow icon="🎓" label={lang === 'ru' ? 'ISM' : 'ISM'}                 value={demoStudent.teacher} last />
+                <InfoRow icon={<svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>} label={lang === 'ru' ? 'ISM' : 'ISM'}                 value={demoStudent.teacher} last />
               </div>
             </div>
           )}
@@ -131,12 +131,12 @@ export default function ProfilePage() {
               </p>
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <SettingRow
-                  icon="🌐"
+                  icon={<svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>}
                   label={lang === 'ru' ? 'Til / Язык' : "Til / Язык"}
                   right={<LangToggle variant="light" />}
                 />
                 <SettingRow
-                  icon="📖"
+                  icon={<svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>}
                   label={lang === 'ru' ? "Руководство" : "Qo'llanma"}
                   right={
                     <Link href="/guide" className="text-[#C0181B] text-sm font-semibold">
@@ -145,7 +145,7 @@ export default function ProfilePage() {
                   }
                 />
                 <SettingRow
-                  icon="ℹ️"
+                  icon={<svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
                   label={lang === 'ru' ? 'Версия приложения' : 'Ilova versiyasi'}
                   right={<span className="text-sm text-gray-400 font-medium">1.0.0</span>}
                   last

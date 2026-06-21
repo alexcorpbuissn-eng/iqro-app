@@ -147,7 +147,6 @@ export interface Course {
   scheduleUz: string;
   scheduleRu: string;
   colorClass: string; // tailwind bg color for the card accent
-  icon: string;       // emoji icon
   lessons: { id: number; titleUz: string; titleRu: string; status: LessonStatus }[];
 }
 
@@ -165,7 +164,6 @@ export const courses: Course[] = [
     scheduleUz: "Du, Chor, Jum — 09:00–10:00",
     scheduleRu: "Пн, Ср, Пт — 09:00–10:00",
     colorClass: 'bg-blue-500',
-    icon: '🔢',
     lessons: [
       { id: 1, titleUz: "Sonlar va hisoblash asoslari",        titleRu: "Числа и основы счёта",              status: 'completed' },
       { id: 2, titleUz: "Qo'shish va ayirish tezligi",         titleRu: "Скорость сложения и вычитания",     status: 'completed' },
@@ -187,7 +185,6 @@ export const courses: Course[] = [
     scheduleUz: "Du, Chor, Jum — 15:00–17:00",
     scheduleRu: "Пн, Ср, Пт — 15:00–17:00",
     colorClass: 'bg-red-500',
-    icon: '🇬🇧',
     lessons: [
       { id: 1, titleUz: "Unit 1 — Greetings & Introductions", titleRu: "Урок 1 — Приветствия и знакомства", status: 'completed' },
       { id: 2, titleUz: "Unit 2 — Present Simple tense",      titleRu: "Урок 2 — Настоящее простое время",  status: 'completed' },
@@ -210,7 +207,6 @@ export const courses: Course[] = [
     scheduleUz: "Sesh, Pays — 14:00–16:00",
     scheduleRu: "Вт, Чт — 14:00–16:00",
     colorClass: 'bg-purple-500',
-    icon: '🤖',
     lessons: [
       { id: 1, titleUz: "Robot nima? Asosiy tushunchalar",    titleRu: "Что такое робот? Основные понятия",  status: 'completed' },
       { id: 2, titleUz: "Lego EV3 bilan tanishish",           titleRu: "Знакомство с Lego EV3",              status: 'completed' },
@@ -232,7 +228,6 @@ export const courses: Course[] = [
     scheduleUz: "Du, Sesh, Chor, Pays, Jum — 10:00–11:30",
     scheduleRu: "Пн, Вт, Ср, Чт, Пт — 10:00–11:30",
     colorClass: 'bg-amber-500',
-    icon: '📚',
     lessons: [
       { id: 1, titleUz: "Harflarni o'rganish — A dan M gacha", titleRu: "Изучение букв — от А до М",          status: 'completed' },
       { id: 2, titleUz: "Harflarni o'rganish — N dan Z gacha", titleRu: "Изучение букв — от Н до Я",          status: 'completed' },
