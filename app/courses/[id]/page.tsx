@@ -6,6 +6,7 @@ import { useLang } from '@/lib/i18n-context';
 import { DarkHeader } from '@/components/shared/Header';
 import { BottomNav } from '@/components/shared/BottomNav';
 import { courses } from '@/lib/mock-data';
+import { courseIcons } from '@/lib/course-icons';
 
 export default function CourseDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -38,9 +39,9 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
           {/* Icon + title */}
           <div className="flex items-center gap-4">
             <div className={`w-14 h-14 ${course.colorClass} rounded-2xl flex items-center justify-center text-3xl flex-shrink-0`}>
-              <span className="text-white font-bold">
-                {(lang === 'ru' ? course.nameRu : course.nameUz).charAt(0)}
-              </span>
+              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                <path strokeLinecap="round" strokeLinejoin="round" d={courseIcons[course.id]} />
+              </svg>
             </div>
             <div>
               <h1 className="text-xl font-bold text-white leading-tight">

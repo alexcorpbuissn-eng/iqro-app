@@ -5,6 +5,7 @@ import { useLang } from '@/lib/i18n-context';
 import { DarkHeader } from '@/components/shared/Header';
 import { BottomNav } from '@/components/shared/BottomNav';
 import { courses } from '@/lib/mock-data';
+import { courseIcons } from '@/lib/course-icons';
 
 // ── Status badge ─────────────────────────────────────────────────────────────
 function StatusPill({ children, color }: { children: React.ReactNode; color: 'green' | 'amber' | 'red' }) {
@@ -115,9 +116,9 @@ export default function HomePage() {
                   <div className={`${course.colorClass} h-1.5 w-full`} />
                   <div className="p-3">
                     <div className={`w-10 h-10 rounded-full ${course.colorClass} flex items-center justify-center`}>
-                      <span className="text-white font-bold text-sm">
-                        {(lang === 'ru' ? course.nameRu : course.nameUz).charAt(0)}
-                      </span>
+                      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d={courseIcons[course.id]} />
+                      </svg>
                     </div>
                     <p className="text-xs font-bold text-[#1C1C2E] mt-2 leading-tight">
                       {lang === 'ru' ? course.nameRu : course.nameUz}
