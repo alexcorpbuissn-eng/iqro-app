@@ -24,8 +24,8 @@ export default function ParentPage() {
 
       {/* ── DARK HERO ── */}
       <div className="bg-[#111111]">
-        <DarkHeader 
-          left="menu" 
+        <DarkHeader
+          left="back"
           right={
             <div className="flex items-center gap-2">
               <NotificationBell />
@@ -40,12 +40,9 @@ export default function ParentPage() {
             {lang === 'ru' ? 'Добро пожаловать 👋' : "Xush kelibsiz 👋"}
           </p>
           <h1 className="text-xl font-bold text-white mb-1">{demoParent.fullName}</h1>
-          <div className="flex items-center gap-1.5 mb-6">
-            <div className="w-2 h-2 rounded-full bg-green-400" />
-            <p className="text-white/60 text-xs">
-              {demoStudent.fullName} · {demoStudent.branchShort}
-            </p>
-          </div>
+          <p className="text-white/60 text-xs mb-6">
+            {demoStudent.fullName} · {demoStudent.branchShort}
+          </p>
 
           {/* Stat boxes */}
           <div className="grid grid-cols-2 gap-3">
