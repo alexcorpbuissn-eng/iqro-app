@@ -301,3 +301,23 @@ export const paymentsTableData: Record<number, {
     { id: 15, studentName: 'Bobojonov Sanjar', amountUzs: 450000, dueDate: '2026-07-01', dueDateLabel: 'Iyul 1',  status: 'overdue' },
   ],
 };
+
+// ─── Notifications ─────────────────────────────────────────────────────────────
+export const mockNotifications = [
+  {
+    id: 1,
+    type: 'absent',
+    titleUz: "Karimov Alisher bugun darsga kelmadi",
+    titleRu: "Karimov Alisher не пришёл на урок сегодня",
+    timeLabel: "09:15",
+    read: false,
+  },
+  {
+    id: 2,
+    type: 'payment',
+    titleUz: "To'lov muddati: 3 kun qoldi",
+    titleRu: "Срок оплаты: осталось 3 дня",
+    timeLabel: "Iyun 22",
+    read: false,
+  },
+];

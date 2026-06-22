@@ -2,6 +2,8 @@
 
 import { DarkHeader } from '@/components/shared/Header';
 import { BottomNav } from '@/components/shared/BottomNav';
+import { LangToggle } from '@/components/shared/LangToggle';
+import { NotificationBell } from '@/components/shared/NotificationBell';
 import { AttendanceWidget } from '@/components/parent/AttendanceWidget';
 import { HomeworkWidget } from '@/components/parent/HomeworkWidget';
 import { PaymentWidget } from '@/components/parent/PaymentWidget';
@@ -22,7 +24,15 @@ export default function ParentPage() {
 
       {/* ── DARK HERO ── */}
       <div className="bg-[#111111]">
-        <DarkHeader left="menu" />
+        <DarkHeader 
+          left="menu" 
+          right={
+            <div className="flex items-center gap-2">
+              <NotificationBell />
+              <LangToggle variant="dark" />
+            </div>
+          }
+        />
 
         <div className="max-w-2xl mx-auto px-4 pt-4 pb-8 animate-fade-in">
           {/* Greeting */}
